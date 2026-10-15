@@ -623,34 +623,61 @@ const learningNotes = {
 
 };    
 function openNote(chapter, index) {
-document.getElementById("subjectPage").classList.add("hidden");
-document.getElementById("notePage").classList.remove("hidden");
+    document.getElementById("subjectPage").classList.add("hidden");
+    document.getElementById("notePage").classList.remove("hidden");
 
-const content = document.getElementById("noteContent");
-content.innerHTML = "";
+    const content = document.getElementById("noteContent");
+    content.innerHTML = "";
 
-const title = document.createElement("h2");
-title.textContent = chapter;
+    const title = document.createElement("h2");
+    title.textContent = chapter;
 
-const subtitle = document.createElement("p");
-subtitle.textContent =
-    currentSubject.name + " Tingkatan " + currentGrade;
+    const subtitle = document.createElement("p");
+    subtitle.textContent =
+        currentSubject.name + " Tingkatan " + currentGrade;
 
-const heading = document.createElement("h3");
-heading.textContent = "Nota Pembelajaran";
+    content.append(title, subtitle);
 
-const message = document.createElement("p");
-message.textContent =
-    "Nota bagi bab ini sedang disediakan. Sila kembali lagi untuk mendapatkan nota pembelajaran yang lengkap.";
+    const subjectNotes = learningNotes[currentSubject.name];
+    const gradeNotes = subjectNotes
+        ? subjectNotes[currentGrade]
+        : null;
 
-const backButton = document.createElement("button");
-backButton.textContent = "← Kembali ke Senarai Bab";
-backButton.onclick = goSubject;
+    const note =
+        gradeNotes
+            ? gradeNotes[chapter] || gradeNotes["Bab " + (index + 1)]
+            : null;
 
-content.append(title, subtitle, heading, message, backButton);
+    if (note) {
+        const heading = document.createElement("h3");
+        heading.textContent = note.title || "Nota Pembelajaran";
+        content.appendChild(heading);
 
-window.scrollTo(0, 0);
+        note.content.forEach(section => {
+            const sectionHeading = document.createElement("h3");
+            sectionHeading.textContent = section.heading;
 
+            const paragraph = document.createElement("p");
+            paragraph.textContent = section.text;
+
+            content.append(sectionHeading, paragraph);
+        });
+    } else {
+        const message = document.createElement("p");
+        message.textContent =
+            "Nota untuk bab ini belum tersedia. " +
+            "Sila kembali lagi untuk mendapatkan nota lengkap.";
+
+        content.appendChild(message);
+    }
+
+    const backButton = document.createElement("button");
+    backButton.textContent = "← Kembali ke Senarai Bab";
+    backButton.onclick = goSubject;
+
+    content.appendChild(backButton);
+
+    window.scrollTo(0, 0);
 }
 renderSubjects();
 </script>
