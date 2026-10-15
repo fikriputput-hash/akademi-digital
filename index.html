@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akademi Digital</title>
+
+<style>
+:root {
+    --navy: #102747;
+    --blue: #234b78;
+    --light: #f3f6fb;
+    --white: #ffffff;
+    --text: #243247;
+    --muted: #718096;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 22px 7%;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: #9fc5ff;
+}
+
+header p {
+    margin-bottom: 0;
+    color: #d5e2f5;
+    font-size: 13px;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px 60px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #102747, #315e91);
+    color: white;
+    padding: 35px 28px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    line-height: 1.7;
+    color: #e1eafa;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d8e0ec;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-bottom: 28px;
+    outline-color: var(--blue);
+}
+
+.section-title {
+    margin: 28px 0 15px;
+    color: var(--navy);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e1e7f0;
+    padding: 22px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: #789bc6;
+    box-shadow: 0 8px 22px #10274712;
+}
+
+.icon {
+    font-size: 28px;
+}
+
+.card h3 {
+    margin: 12px 0 7px;
+    font-size: 16px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 14px;
+}
+
+.back {
+    background: #e3ebf7;
+    color: var(--navy);
+    margin-bottom: 22px;
+}
+
+.chapter {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #e1e7f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.chapter:hover {
+    border-color: #789bc6;
+}
+
+.chapter small {
+    color: var(--muted);
+}
+
+.note {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    line-height: 1.8;
+    border: 1px solid #e1e7f0;
+}
+
+.note h3 {
+    color: var(--navy);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--navy);
+    color: #d5e2f5;
+    font-size: 13px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 650px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        padding: 17px 13px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">AKADEMI <span>DIGITAL.</span></div>
+    <p>YOUR PERSONAL LEARNING HUB</p>
+</header>
+
+<main>
+
+    <section id="home">
+
+        <div class="hero">
+            <h1>Selamat Datang! 👋</h1>
+            <p>
+                Satu tempat untuk semua nota pembelajaran anda.
+                Pilih tingkatan, cari subjek dan terokai setiap bab
+                dengan mudah.
+            </p>
+        </div>
+
+        <input
+            type="search"
+            id="search"
+            class="search"
+            placeholder="🔍 Cari subjek..."
+            oninput="searchSubjects()"
+        >
+
+        <h2 class="section-title">🎓 Tingkatan 4</h2>
+        <div class="grid" id="form4"></div>
+
+        <h2 class="section-title">🎓 Tingkatan 5</h2>
+        <div class="grid" id="form5"></div>
+
+        <p id="empty" class="hidden">
+            Tiada subjek ditemui. Cuba kata carian lain.
+        </p>
+
+    </section>
+
+    <section id="subjectPage" class="hidden">
+        <button class="back" onclick="goHome()">← Halaman Utama</button>
+        <h1 id="subjectTitle"></h1>
+        <p id="subjectDescription"></p>
+        <div id="chapters"></div>
+    </section>
+
+    <section id="notePage" class="hidden">
+        <button class="back" onclick="goSubject()">← Kembali ke Bab</button>
+        <div id="noteContent" class="note"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>AKADEMI DIGITAL © 2026</p>
+    <p>Belajar. Teroka. Berjaya.</p>
+</footer>
+
+<script>
+const subjects = [
+    {
+        name: "Bahasa Melayu",
+        icon: "📘",
+        grades: [4, 5],
+        chapters: ["Karangan", "Tatabahasa", "Pemahaman", "Novel"]
+    },
+    {
+        name: "Bahasa Inggeris",
+        icon: "📗",
+        grades: [4, 5],
+        chapters: ["Reading", "Writing", "Grammar", "Literature"]
+    },
+    {
+        name: "Matematik",
+        icon: "📐",
+        grades: [4, 5],
+        chapters: ["Fungsi", "Fungsi Kuadratik", "Penaakulan Logik",
+                   "Operasi Set", "Rangkaian dalam Teori Graf"]
+    },
+    {
+        name: "Matematik Tambahan",
+        icon: "📊",
+        grades: [4, 5],
+        chapters: ["Fungsi", "Fungsi Kuadratik", "Sistem Persamaan",
+                   "Indeks dan Logaritma"]
+    },
+    {
+        name: "Sejarah",
+        icon: "🏛️",
+        grades: [4, 5],
+        chapters: ["Nasionalisme", "Perjuangan Kemerdekaan",
+                   "Pembentukan Negara", "Malaysia dan Dunia"]
+    },
+    {
+        name: "Ekonomi",
+        icon: "📈",
+        grades: [4, 5],
+        chapters: ["Pengenalan Ekonomi", "Pasaran", "Wang dan Bank",
+                   "Ekonomi Malaysia"]
+    },
+    {
+        name: "Prinsip Perakaunan",
+        icon: "🧮",
+        grades: [4, 5],
+        chapters: ["Pengenalan Perakaunan",
+                   "Persamaan Perakaunan",
+                   "Dokumen Perniagaan", "Penyata Kewangan"]
+    },
+    {
+        name: "Pendidikan Islam",
+        icon: "🕌",
+        grades: [4, 5],
+        chapters: ["Al-Quran", "Hadis", "Akidah", "Fiqah", "Akhlak"]
+    },
+    {
+        name: "Pendidikan Jasmani dan Pendidikan Kesihatan",
+        icon: "🏃",
+        grades: [4, 5],
+        chapters: ["Kecergasan Fizikal", "Sukan dan Permainan",
+                   "Kesihatan Diri"]
+    }
+];
+
+let currentSubject = null;
+let currentGrade = 4;
+
+function createCard(subject, grade) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <div class="icon">${subject.icon}</div>
+        <h3>${subject.name}</h3>
+        <p>Tingkatan ${grade} · ${subject.chapters.length} bahagian</p>
+    `;
+
+    card.onclick = () => openSubject(subject, grade);
+
+    return card;
+}
+
+function renderSubjects() {
+    [4, 5].forEach(grade => {
+        const container = document.getElementById("form" + grade);
+        container.innerHTML = "";
+
+        subjects
+            .filter(subject => subject.grades.includes(grade))
+            .forEach(subject => {
+                container.appendChild(createCard(subject, grade));
+            });
+    });
+}
+
+function searchSubjects() {
+    const query = document.getElementById("search")
+        .value.toLowerCase().trim();
+
+    let count = 0;
+
+    [4, 5].forEach(grade => {
+        const container = document.getElementById("form" + grade);
+        container.innerHTML = "";
+
+        subjects
+            .filter(subject =>
+                subject.grades.includes(grade) &&
+                subject.name.toLowerCase().includes(query)
+            )
+            .forEach(subject => {
+                container.appendChild(createCard(subject, grade));
+                count++;
+            });
+
+        container.previousElementSibling.classList.toggle(
+            "hidden",
+            container.children.length === 0
+        );
+    });
+
+    document.getElementById("empty").classList.toggle(
+        "hidden", count > 0
+    );
+}
+
+function openSubject(subject, grade) {
+    currentSubject = subject;
+    currentGrade = grade;
+
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("notePage").classList.add("hidden");
+    document.getElementById("subjectPage").classList.remove("hidden");
+
+    document.getElementById("subjectTitle").textContent =
+        subject.icon + " " + subject.name;
+
+    document.getElementById("subjectDescription").textContent =
+        "Tingkatan " + grade + " · Pilih bab untuk melihat nota.";
+
+    const container = document.getElementById("chapters");
+    container.innerHTML = "";
+
+    subject.chapters.forEach((chapter, index) => {
+        const item = document.createElement("div");
+        item.className = "chapter";
+
+        const title = document.createElement("strong");
+        title.textContent = "Bab " + (index + 1) + " — " + chapter;
+
+        const arrow = document.createElement("span");
+        arrow.textContent = "›";
+
+        item.append(title, arrow);
+        item.onclick = () => openNote(chapter, index);
+
+        container.appendChild(item);
+    });
+
+    window.scrollTo(0, 0);
+}
+
+function openNote(chapter, index) {
+    document.getElementById("subjectPage").classList.add("hidden");
+    document.getElementById("notePage").classList.remove("hidden");
+
+    const content = document.getElementById("noteContent");
+    content.innerHTML = "";
+
+    const title = document.createElement("h2");
+    title.textContent = chapter;
+
+    const subtitle = document.createElement("p");
+    subtitle.textContent =
+        currentSubject.name + " · Tingkatan " + currentGrade;
+
+    const heading = document.createElement("h3");
+    heading.textContent = "Nota Pembelajaran";
+
+    const message = document.createElement("p");
+    message.textContent =
+        "Nota untuk bab ini belum dimasukkan. Anda boleh menambah " +
+        "nota sebenar di sini apabila kandungan sudah tersedia.";
+
+    content.append(title, subtitle, heading, message);
+
+    window.scrollTo(0, 0);
+}
+
+function goHome() {
+    document.getElementById("subjectPage").classList.add("hidden");
+    document.getElementById("notePage").classList.add("hidden");
+    document.getElementById("home").classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+function goSubject() {
+    document.getElementById("notePage").classList.add("hidden");
+    document.getElementById("subjectPage").classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+}
+
+renderSubjects();
+</script>
+
+</body>
+</html>
