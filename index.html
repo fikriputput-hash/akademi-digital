@@ -1,686 +1,184 @@
+
 <!DOCTYPE html>
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Akademi Digital</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AKADEMI DIGITAL</title>
 <style>
-:root {
-    --navy: #102747;
-    --blue: #234b78;
-    --light: #f3f6fb;
-    --white: #ffffff;
-    --text: #243247;
-    --muted: #718096;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--light);
-    color: var(--text);
-}
-
-header {
-    background: var(--navy);
-    color: white;
-    padding: 22px 7%;
-}
-
-.brand {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.brand span {
-    color: #9fc5ff;
-}
-
-header p {
-    margin-bottom: 0;
-    color: #d5e2f5;
-    font-size: 13px;
-}
-
-main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 30px 20px 60px;
-}
-
-.hero {
-    background: linear-gradient(135deg, #102747, #315e91);
-    color: white;
-    padding: 35px 28px;
-    border-radius: 18px;
-    margin-bottom: 30px;
-}
-
-.hero h1 {
-    font-size: 30px;
-    margin: 0 0 12px;
-}
-
-.hero p {
-    line-height: 1.7;
-    color: #e1eafa;
-}
-
-.search {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #d8e0ec;
-    border-radius: 10px;
-    font-size: 15px;
-    margin-bottom: 28px;
-    outline-color: var(--blue);
-}
-
-.section-title {
-    margin: 28px 0 15px;
-    color: var(--navy);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.card {
-    background: white;
-    border: 1px solid #e1e7f0;
-    padding: 22px 18px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    border-color: #789bc6;
-    box-shadow: 0 8px 22px #10274712;
-}
-
-.icon {
-    font-size: 28px;
-}
-
-.card h3 {
-    margin: 12px 0 7px;
-    font-size: 16px;
-}
-
-.card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 0;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-    border-radius: 8px;
-    padding: 11px 16px;
-    font-size: 14px;
-}
-
-.back {
-    background: #e3ebf7;
-    color: var(--navy);
-    margin-bottom: 22px;
-}
-
-.chapter {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    border: 1px solid #e1e7f0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-}
-
-.chapter:hover {
-    border-color: #789bc6;
-}
-
-.chapter small {
-    color: var(--muted);
-}
-
-.note {
-    background: white;
-    padding: 25px;
-    border-radius: 14px;
-    line-height: 1.8;
-    border: 1px solid #e1e7f0;
-}
-
-.note h3 {
-    color: var(--navy);
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    background: var(--navy);
-    color: #d5e2f5;
-    font-size: 13px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-@media (max-width: 650px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .card {
-        padding: 17px 13px;
-    }
-
-    .hero h1 {
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 380px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
+:root{--navy:#102b4e;--blue:#234f7d;--pale:#eef4fb;--line:#dce5ef}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f8fc;color:#263445;font:16px Arial,sans-serif;line-height:1.6}
+header{background:var(--navy);color:white;padding:22px max(20px,calc((100% - 1100px)/2))}
+header strong{font-size:25px;letter-spacing:1px}
+header p{margin:3px 0 0;color:#d9e8fa}
+main{max-width:1100px;margin:auto;padding:22px 16px 50px}
+.hero,.panel,.note{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:20px}
+h1,h2,h3{color:var(--navy);line-height:1.3}
+h1{font-size:clamp(27px,5vw,38px);margin:8px 0}
+.muted{color:#687789}
+input{width:100%;padding:14px;border:1px solid #cbd7e5;border-radius:11px;font-size:16px;margin-top:12px}
+.tabs{display:flex;gap:10px;margin:18px 0;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.tab,.back{border:1px solid var(--line);background:white;color:var(--navy);padding:10px 16px;border-radius:10px;font-weight:bold}
+.tab.active{background:var(--navy);color:white}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.subject{background:white;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left;min-height:125px;color:var(--navy)}
+.subject:hover,.chapter:hover{border-color:#7196bd;background:var(--pale)}
+.subject span{display:block;font-size:25px;margin-bottom:8px}
+.subject strong{font-size:14px}
+.subject small{display:block;color:#687789;margin-top:8px}
+.chapterlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.chapter{padding:15px;background:white;border:1px solid var(--line);border-radius:12px;text-align:left;color:var(--navy);font-weight:bold}
+.back{margin-bottom:16px}
+.hidden{display:none!important}
+.note h2{margin-top:24px}
+.tip{background:var(--pale);border-left:4px solid var(--blue);padding:14px;border-radius:5px;margin:18px 0}
+footer{text-align:center;color:#687789;padding:20px;font-size:13px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.chapterlist{grid-template-columns:1fr}header strong{font-size:21px}.hero,.panel,.note{padding:18px}}
+@media(max-width:340px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <div class="brand">AKADEMI <span>DIGITAL.</span></div>
-    <p>YOUR PERSONAL LEARNING HUB</p>
+  <strong>📘 AKADEMI DIGITAL</strong>
+  <p>Ruang pembelajaran Tingkatan 4 &amp; Tingkatan 5</p>
 </header>
-
 <main>
+<section id="home">
+  <div class="hero">
+    <p><b>BELAJAR · FAHAM · BERJAYA</b></p>
+    <h1>Ilmu di hujung jari.</h1>
+    <p class="muted">Pilih tingkatan, cari subjek dan klik bab untuk membuka nota.</p>
+    <input id="search" type="search" placeholder="Cari subjek..." aria-label="Cari subjek">
+  </div>
+  <div class="tabs">
+    <button class="tab active" data-grade="4" onclick="setGrade(4)">Tingkatan 4</button>
+    <button class="tab" data-grade="5" onclick="setGrade(5)">Tingkatan 5</button>
+  </div>
+  <h2 id="heading">Subjek Tingkatan 4</h2>
+  <p id="count" class="muted"></p>
+  <div class="grid" id="subjects"></div>
+  <p id="empty" class="hidden">Subjek tidak dijumpai. Cuba carian lain.</p>
+</section>
 
-    <section id="home">
+<section id="subjectPage" class="hidden">
+  <button class="back" onclick="home()">← Kembali ke subjek</button>
+  <div class="panel">
+    <h1 id="subjectTitle"></h1>
+    <p class="muted">Pilih bab untuk membuka halaman nota.</p>
+    <div class="chapterlist" id="chapters"></div>
+  </div>
+</section>
 
-        <div class="hero">
-            <h1>Selamat Datang! 👋</h1>
-            <p>
-                Satu tempat untuk semua nota pembelajaran anda.
-                Pilih tingkatan, cari subjek dan terokai setiap bab
-                dengan mudah.
-            </p>
-        </div>
-
-        <input
-            type="search"
-            id="search"
-            class="search"
-            placeholder="🔍 Cari subjek..."
-            oninput="searchSubjects()"
-        >
-
-        <h2 class="section-title">🎓 Tingkatan 4</h2>
-        <div class="grid" id="form4"></div>
-
-        <h2 class="section-title">🎓 Tingkatan 5</h2>
-        <div class="grid" id="form5"></div>
-
-        <p id="empty" class="hidden">
-            Tiada subjek ditemui. Cuba kata carian lain.
-        </p>
-
-    </section>
-
-    <section id="subjectPage" class="hidden">
-        <button class="back" onclick="goHome()">← Halaman Utama</button>
-        <h1 id="subjectTitle"></h1>
-        <p id="subjectDescription"></p>
-        <div id="chapters"></div>
-    </section>
-
-    <section id="notePage" class="hidden">
-        <button class="back" onclick="goSubject()">← Kembali ke Bab</button>
-        <div id="noteContent" class="note"></div>
-    </section>
-
+<section id="notePage" class="hidden">
+  <button class="back" onclick="backToSubject()">← Kembali ke senarai bab</button>
+  <article class="note" id="note"></article>
+</section>
 </main>
-
-<footer>
-    <p>AKADEMI DIGITAL © 2026</p>
-    <p>Belajar. Teroka. Berjaya.</p>
-</footer>
+<footer>AKADEMI DIGITAL · Belajar sedikit demi sedikit, setiap hari.</footer>
 
 <script>
-const subjects = [
-    
-{
-    name: "Al-Syariah",
-    icon: "⚖️",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Bahasa Melayu",
-    icon: "📘",
-    grades: [4, 5],
-    chapters: ["Karangan", "Tatabahasa", "Pemahaman", "Novel"]
-},
-{
-    name: "Bahasa Arab",
-    icon: "📗",
-    grades: [4, 5],
-    chapters: ["Mufradat", "Nahu", "Sarf", "Insya"]
-},
-{
-    name: "Biologi",
-    icon: "🧬",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Ekonomi",
-    icon: "📈",
-    grades: [4, 5],
-    chapters: ["Pengenalan Ekonomi", "Pasaran", "Wang dan Bank"]
-},
-{
-    name: "English",
-    icon: "📗",
-    grades: [4, 5],
-    chapters: ["Reading", "Writing", "Grammar", "Literature"]
-},
-{
-    name: "Fizik",
-    icon: "⚛️",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Geografi",
-    icon: "🌍",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Grafik Komunikasi Teknikal",
-    icon: "📐",
-    grades: [4, 5],
-    chapters: ["Lukisan Teknikal", "Geometri", "Unjuran"]
-},
-{
-    name: "Kesusasteraan Melayu Komunikatif",
-    icon: "📚",
-    grades: [4, 5],
-    chapters: ["Prosa", "Puisi", "Drama"]
-},
-{
-    name: "Kesusasteraan Tamil",
-    icon: "📚",
-    grades: [4, 5],
-    chapters: ["Puisi", "Prosa", "Kesusasteraan"]
-},
-{
-    name: "Kimia",
-    icon: "🧪",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Lughatul Arabiah Muasirah",
-    icon: "📝",
-    grades: [4, 5],
-    chapters: ["Mufradat", "Qiraah", "Kitabah"]
-},
-{
-    name: "Matematik",
-    icon: "📐",
-    grades: [4, 5],
-    chapters: ["Fungsi", "Fungsi Kuadratik", "Penaakulan Logik"]
-},
-{
-    name: "Matematik Tambahan",
-    icon: "📊",
-    grades: [4, 5],
-    chapters: ["Fungsi", "Fungsi Kuadratik", "Indeks dan Logaritma"]
-},
-{
-    name: "Pendidikan Islam",
-    icon: "🕌",
-    grades: [4, 5],
-    chapters: ["Al-Quran", "Hadis", "Akidah", "Fiqah", "Akhlak"]
-},
-{
-    name: "Pendidikan Moral",
-    icon: "🤝",
-    grades: [4, 5],
-    chapters: ["Nilai Moral", "Insan Bermoral", "Masyarakat"]
-},
-{
-    name: "Pendidikan Quran Sunnah",
-    icon: "📖",
-    grades: [4, 5],
-    chapters: ["Al-Quran", "Ulum Al-Quran", "Hadis"]
-},
-{
-    name: "Pendidikan Syariah Islamiah",
-    icon: "☪️",
-    grades: [4, 5],
-    chapters: ["Ibadah", "Munakahat", "Muamalat"]
-},
-{
-    name: "Pendidikan Seni Visual",
-    icon: "🎨",
-    grades: [4, 5],
-    chapters: ["Seni Halus", "Reka Bentuk", "Kritikan Seni"]
-},
-{
-    name: "Perniagaan",
-    icon: "💼",
-    grades: [4, 5],
-    chapters: ["Tujuan Perniagaan", "Pengurusan", "Pemasaran"]
-},
-{
-    name: "Pertanian",
-    icon: "🌱",
-    grades: [4, 5],
-    chapters: ["Tanaman", "Tanah", "Pengurusan Pertanian"]
-},
-{
-    name: "Prinsip Perakaunan",
-    icon: "🧮",
-    grades: [4, 5],
-    chapters: ["Pengenalan Perakaunan", "Persamaan Perakaunan", "Penyata Kewangan"]
-},
-{
-    name: "Reka Cipta",
-    icon: "💡",
-    grades: [4, 5],
-    chapters: ["Penyelesaian Masalah", "Reka Bentuk", "Penghasilan Produk"]
-},
-{
-    name: "Sains",
-    icon: "🔬",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Sains Komputer",
-    icon: "💻",
-    grades: [4, 5],
-    chapters: ["Pengaturcaraan", "Pangkalan Data", "Rangkaian"]
-},
-{
-    name: "Sains Rumah Tangga",
-    icon: "🏡",
-    grades: [4, 5],
-    chapters: ["Pemakanan", "Pakaian", "Pengurusan Rumah Tangga"]
-},
-{
-    name: "Sains Sukan",
-    icon: "🏅",
-    grades: [4, 5],
-    chapters: ["Anatomi", "Fisiologi", "Kecergasan"]
-},
-{
-    name: "Sains Tambahan",
-    icon: "🔭",
-    grades: [4, 5],
-    chapters: ["Bab 1", "Bab 2", "Bab 3"]
-},
-{
-    name: "Sejarah",
-    icon: "🏛️",
-    grades: [4, 5],
-    chapters: ["Nasionalisme", "Perjuangan Kemerdekaan", "Pembentukan Negara"]
-},
-{
-    name: "Tasawwur Islam",
-    icon: "🌙",
-    grades: [4, 5],
-    chapters: ["Islam sebagai Ad-Din", "Manusia sebagai Khalifah", "Sistem Sosial Islam"]
-},
-{
-    name: "Usuluddin",
-    icon: "📖",
-    grades: [4, 5],
-    chapters: ["Akidah", "Tauhid", "Pemikiran Islam"]
-}
-
+const data = [
+["Al-Syariah","⚖️",["Asas Syariah","Ibadah","Muamalat","Kehakiman"]],
+["Bahasa Melayu","📘",["Karangan","Tatabahasa","Pemahaman","KOMSAS","Rumusan"]],
+["Bahasa Arab","📗",["Mufradat","Nahu","Sarf","Insya'","Qiraah"]],
+["Biologi","🧬",["Pengenalan kepada Biologi","Biologi Sel","Membran Plasma","Komposisi Kimia Sel","Enzim dan Metabolisme","Pembahagian Sel","Respirasi Sel","Sistem Respirasi","Nutrisi","Pengangkutan","Keimunan","Koordinasi","Homeostasis"]],
+["Ekonomi","📈",["Pengenalan Ekonomi","Pasaran","Wang dan Bank","Pengeluaran","Pendapatan"]],
+["English","📗",["Reading","Writing","Grammar","Literature","Listening and Speaking"]],
+["Fizik","⚛️",["Pengukuran","Daya dan Gerakan","Kegravitian","Haba","Gelombang","Cahaya dan Optik"]],
+["Geografi","🌍",["Peta Topografi","Cuaca dan Iklim","Pengangkutan","Sumber Semula Jadi","Kegiatan Ekonomi"]],
+["Grafik Komunikasi Teknikal","📐",["Pengenalan Grafik","Peralatan Lukisan","Geometri","Unjuran","Lukisan Isometri"]],
+["Kesusasteraan Melayu Komunikatif","📚",["Prosa","Puisi","Drama","Cerpen","Novel"]],
+["Kesusasteraan Tamil","📚",["Puisi","Prosa","Kesusasteraan"]],
+["Kimia","🧪",["Pengenalan Kimia","Struktur Atom","Formula Kimia","Jadual Berkala","Ikatan Kimia","Asid dan Bes","Kadar Tindak Balas","Bahan Buatan"]],
+["Lughatul Arabiah Muasirah","📝",["Mufradat","Qiraah","Kitabah","Hiwar"]],
+["Matematik","📐",["Fungsi","Asas Nombor","Logik Matematik","Set","Graf","Ketaksamaan Linear","Kebarangkalian"]],
+["Matematik Tambahan","📊",["Fungsi","Fungsi Kuadratik","Indeks dan Logaritma","Janjang","Hukum Linear","Pembezaan","Pengamiran"]],
+["Pendidikan Islam","🕌",["Al-Quran","Hadis","Akidah","Fiqah","Sirah","Akhlak"]],
+["Pendidikan Moral","🤝",["Nilai Moral","Insan Bermoral","Norma Masyarakat","Moral dan Kenegaraan"]],
+["Pendidikan Quran Sunnah","📖",["Al-Quran","Ulum Al-Quran","Hadis","Ulum Hadis"]],
+["Pendidikan Syariah Islamiah","☪️",["Ibadah","Munakahat","Muamalat","Jinayat","Siasah Syar'iyyah"]],
+["Pendidikan Seni Visual","🎨",["Persepsi Seni","Eksplorasi Seni","Ekspresi Seni","Apresiasi Seni"]],
+["Perniagaan","💼",["Tujuan Perniagaan","Trend Perniagaan","Visi dan Misi","Pengurusan","Pemasaran"]],
+["Pertanian","🌱",["Tanaman","Tanah","Pengurusan Pertanian","Teknologi Pertanian"]],
+["Prinsip Perakaunan","🧮",["Pengenalan Perakaunan","Persamaan Perakaunan","Dokumen Perniagaan","Buku Catatan Pertama","Lejar","Imbangan Duga","Penyata Kewangan"]],
+["Reka Cipta","💡",["Penyelesaian Masalah","Reka Bentuk","Penghasilan Produk","Penilaian Produk"]],
+["Sains","🔬",["Rangsangan dan Gerak Balas","Respirasi","Pengangkutan","Kereaktifan Logam","Haba","Elektrik","Tenaga","Radioaktiviti"]],
+["Sains Komputer","💻",["Pengaturcaraan","Pangkalan Data","Algoritma","Rangkaian Komputer","Interaksi Manusia dan Komputer"]],
+["Sains Rumah Tangga","🏡",["Pemakanan","Pakaian","Pengurusan Keluarga","Penyediaan Makanan"]],
+["Sains Sukan","🏅",["Anatomi","Fisiologi","Kecergasan","Biomekanik","Psikologi Sukan"]],
+["Sains Tambahan","🔭",["Pengukuran","Daya dan Gerakan","Haba","Atom","Elektrik","Asid dan Bes"]],
+["Sejarah","🏛️",["Warisan Negara Bangsa","Nasionalisme","Konflik Dunia","Pendudukan Jepun","Persekutuan Tanah Melayu","Darurat","Kemerdekaan","Perlembagaan"]],
+["Tasawwur Islam","🌙",["Islam sebagai Ad-Din","Manusia sebagai Khalifah","Sistem Sosial Islam","Sistem Ekonomi Islam"]],
+["Usuluddin","📖",["Akidah","Tauhid","Pemikiran Islam","Akhlak"]],
+["Pendidikan Jasmani dan Pendidikan Kesihatan","🏃",["Kecergasan Fizikal","Kemahiran Sukan","Kesihatan Diri","Keselamatan"]]
 ];
 
-let currentSubject = null;
-let currentGrade = 4;
-
-function createCard(subject, grade) {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-        <div class="icon">${subject.icon}</div>
-        <h3>${subject.name}</h3>
-        <p>Tingkatan ${grade} · ${subject.chapters.length} bahagian</p>
-    `;
-
-    card.onclick = () => openSubject(subject, grade);
-
-    return card;
+let grade=4, selected=null, selectedChapter="";
+const $=id=>document.getElementById(id);
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function setGrade(g){
+ grade=g;
+ document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",Number(b.dataset.grade)===g));
+ $("heading").textContent="Subjek Tingkatan "+g;
+ render();
 }
-
-function renderSubjects() {
-    [4, 5].forEach(grade => {
-        const container = document.getElementById("form" + grade);
-        container.innerHTML = "";
-
-        subjects
-            .filter(subject => subject.grades.includes(grade))
-            .forEach(subject => {
-                container.appendChild(createCard(subject, grade));
-            });
-    });
+function render(){
+ const q=$("search").value.toLowerCase().trim();
+ const list=data.filter(s=>s[0].toLowerCase().includes(q));
+ $("subjects").innerHTML="";
+ list.forEach(s=>{
+  const b=document.createElement("button");
+  b.className="subject";
+  b.innerHTML=`<span>${s[1]}</span><strong>${safe(s[0])}</strong><small>Tingkatan ${grade} · ${s[2].length} topik</small>`;
+  b.onclick=()=>openSubject(s);
+  $("subjects").appendChild(b);
+ });
+ $("count").textContent=list.length+" subjek";
+ $("empty").classList.toggle("hidden",list.length>0);
 }
-
-function searchSubjects() {
-    const query = document.getElementById("search")
-        .value.toLowerCase().trim();
-
-    let count = 0;
-
-    [4, 5].forEach(grade => {
-        const container = document.getElementById("form" + grade);
-        container.innerHTML = "";
-
-        subjects
-            .filter(subject =>
-                subject.grades.includes(grade) &&
-                subject.name.toLowerCase().includes(query)
-            )
-            .forEach(subject => {
-                container.appendChild(createCard(subject, grade));
-                count++;
-            });
-
-        container.previousElementSibling.classList.toggle(
-            "hidden",
-            container.children.length === 0
-        );
-    });
-
-    document.getElementById("empty").classList.toggle(
-        "hidden", count > 0
-    );
+function show(id){["home","subjectPage","notePage"].forEach(x=>$(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0);}
+function openSubject(s){
+ selected=s;
+ $("subjectTitle").textContent=s[0]+" — Tingkatan "+grade;
+ $("chapters").innerHTML="";
+ s[2].forEach((chapter,i)=>{
+  const b=document.createElement("button");
+  b.className="chapter";
+  b.textContent="Bab "+(i+1)+": "+chapter+"  ›";
+  b.onclick=()=>openNote(chapter,i);
+  $("chapters").appendChild(b);
+ });
+ show("subjectPage");
 }
-
-function openSubject(subject, grade) {
-    currentSubject = subject;
-    currentGrade = grade;
-
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("notePage").classList.add("hidden");
-    document.getElementById("subjectPage").classList.remove("hidden");
-
-    document.getElementById("subjectTitle").textContent =
-        subject.icon + " " + subject.name;
-
-    document.getElementById("subjectDescription").textContent =
-        "Tingkatan " + grade + " · Pilih bab untuk melihat nota.";
-
-    const container = document.getElementById("chapters");
-    container.innerHTML = "";
-
-    subject.chapters.forEach((chapter, index) => {
-        const item = document.createElement("div");
-        item.className = "chapter";
-
-        const title = document.createElement("strong");
-        title.textContent = "Bab " + (index + 1) + " — " + chapter;
-
-        const arrow = document.createElement("span");
-        arrow.textContent = "›";
-
-        item.append(title, arrow);
-        item.onclick = () => openNote(chapter, index);
-
-        container.appendChild(item);
-    });
-
-    window.scrollTo(0, 0);
+function openNote(chapter,index){
+ selectedChapter=chapter;
+ let body="";
+ if(selected[0]==="Biologi" && grade===4 && index===0){
+ body=`<h2>Apakah Biologi?</h2>
+ <p>Biologi ialah bidang sains yang mengkaji benda hidup dan proses kehidupan. Ahli biologi mengkaji struktur organisma, fungsi sistem hidup serta hubungan organisma dengan persekitarannya.</p>
+ <h2>Bidang dalam Biologi</h2>
+ <ul><li><b>Botani:</b> kajian tentang tumbuhan.</li><li><b>Zoologi:</b> kajian tentang haiwan.</li><li><b>Mikrobiologi:</b> kajian mikroorganisma.</li><li><b>Ekologi:</b> kajian hubungan organisma dengan persekitaran.</li><li><b>Genetik:</b> kajian pewarisan ciri.</li></ul>
+ <h2>Keselamatan makmal</h2>
+ <ul><li>Patuhi arahan guru dan baca label bahan.</li><li>Jangan makan atau minum di makmal.</li><li>Gunakan peralatan dengan cermat.</li><li>Laporkan kemalangan atau tumpahan kepada guru.</li><li>Buang bahan buangan mengikut arahan.</li></ul>
+ <div class="tip"><b>Ingat:</b> Catat pemerhatian dengan teliti dan bezakan pemerhatian daripada inferens.</div>
+ <h2>Uji kefahaman</h2><ol><li>Apakah yang dikaji dalam Biologi?</li><li>Nyatakan dua bidang dalam Biologi.</li><li>Berikan dua peraturan keselamatan makmal.</li></ol>`;
+ }else{
+ body=`<p>Halaman ini disediakan untuk nota <b>${safe(selected[0])}</b>, Tingkatan ${grade}, bagi topik <b>${safe(chapter)}</b>.</p>
+ <h2>Rangka nota</h2>
+ <ul><li>Definisi dan istilah penting bagi topik.</li><li>Konsep utama mengikut turutan pembelajaran.</li><li>Contoh, formula atau huraian yang berkaitan.</li><li>Soalan latihan dan semakan kefahaman.</li></ul>
+ <div class="tip"><b>Nota:</b> Kandungan khusus untuk bab ini belum dimasukkan. Senarai topik ialah rangka awal dan perlu disemak dengan buku teks KSSM bagi tingkatan serta subjek yang tepat.</div>
+ <h2>Petua belajar</h2><p>Baca topik daripada buku teks semasa, catat kata kunci, terangkan konsep menggunakan ayat sendiri dan jawab latihan untuk menguji kefahaman.</p>`;
+ }
+ $("note").innerHTML=`<p class="muted">AKADEMI DIGITAL · Tingkatan ${grade} · ${safe(selected[0])}</p><h1>${safe(chapter)}</h1>${body}`;
+ show("notePage");
 }
-
-function openNote(chapter, index) {
-    document.getElementById("subjectPage").classList.add("hidden");
-    document.getElementById("notePage").classList.remove("hidden");
-
-    const content = document.getElementById("noteContent");
-    content.innerHTML = "";
-
-    const title = document.createElement("h2");
-    title.textContent = chapter;
-
-    const subtitle = document.createElement("p");
-    subtitle.textContent =
-        currentSubject.name + " · Tingkatan " + currentGrade;
-
-    const heading = document.createElement("h3");
-    heading.textContent = "Nota Pembelajaran";
-
-    const message = document.createElement("p");
-    message.textContent =
-        "Nota untuk bab ini belum dimasukkan. Anda boleh menambah " +
-        "nota sebenar di sini apabila kandungan sudah tersedia.";
-
-    content.append(title, subtitle, heading, message);
-
-    window.scrollTo(0, 0);
-}
-
-function goHome() {
-    document.getElementById("subjectPage").classList.add("hidden");
-    document.getElementById("notePage").classList.add("hidden");
-    document.getElementById("home").classList.remove("hidden");
-
-    window.scrollTo(0, 0);
-}
-
-function goSubject() {
-    document.getElementById("notePage").classList.add("hidden");
-    document.getElementById("subjectPage").classList.remove("hidden");
-
-    window.scrollTo(0, 0);
-}
-// PANGKALAN DATA NOTA AKADEMI DIGITAL
-
-const learningNotes = {
-
-    "Biologi": {
-        4: {
-            "Bab 1": {
-                title: "Pengenalan kepada Biologi",
-                content: [
-                    {
-                        heading: "Nota Pembelajaran",
-                        text: "Kandungan nota Biologi Tingkatan 4 akan dimasukkan di sini."
-                    }
-                ]
-            }
-        }
-    }
-
-};    
-function openNote(chapter, index) {
-    document.getElementById("subjectPage").classList.add("hidden");
-    document.getElementById("notePage").classList.remove("hidden");
-
-    const content = document.getElementById("noteContent");
-    content.innerHTML = "";
-
-    const title = document.createElement("h2");
-    title.textContent = chapter;
-
-    const subtitle = document.createElement("p");
-    subtitle.textContent =
-        currentSubject.name + " Tingkatan " + currentGrade;
-
-    content.append(title, subtitle);
-
-    const subjectNotes = learningNotes[currentSubject.name];
-    const gradeNotes = subjectNotes
-        ? subjectNotes[currentGrade]
-        : null;
-
-    const note =
-        gradeNotes
-            ? gradeNotes[chapter] || gradeNotes["Bab " + (index + 1)]
-            : null;
-
-    if (note) {
-        const heading = document.createElement("h3");
-        heading.textContent = note.title || "Nota Pembelajaran";
-        content.appendChild(heading);
-
-        note.content.forEach(section => {
-            const sectionHeading = document.createElement("h3");
-            sectionHeading.textContent = section.heading;
-
-            const paragraph = document.createElement("p");
-            paragraph.textContent = section.text;
-
-            content.append(sectionHeading, paragraph);
-        });
-    } else {
-        const message = document.createElement("p");
-        message.textContent =
-            "Nota untuk bab ini belum tersedia. " +
-            "Sila kembali lagi untuk mendapatkan nota lengkap.";
-
-        content.appendChild(message);
-    }
-
-    const backButton = document.createElement("button");
-    backButton.textContent = "← Kembali ke Senarai Bab";
-    backButton.onclick = goSubject;
-
-    content.appendChild(backButton);
-
-    window.scrollTo(0, 0);
-}
-renderSubjects();
+function home(){show("home");}
+function backToSubject(){show("subjectPage");}
+$("search").addEventListener("input",render);
+render();
 </script>
-
 </body>
 </html>
