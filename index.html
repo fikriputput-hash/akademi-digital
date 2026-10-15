@@ -603,6 +603,25 @@ function goSubject() {
 
     window.scrollTo(0, 0);
 }
+// PANGKALAN DATA NOTA AKADEMI DIGITAL
+
+const learningNotes = {
+
+    "Biologi": {
+        4: {
+            "Bab 1": {
+                title: "Pengenalan kepada Biologi",
+                content: [
+                    {
+                        heading: "Nota Pembelajaran",
+                        text: "Kandungan nota Biologi Tingkatan 4 akan dimasukkan di sini."
+                    }
+                ]
+            }
+        }
+    }
+
+};    
 function openNote(chapter, index) {
 document.getElementById("subjectPage").classList.add("hidden");
 document.getElementById("notePage").classList.remove("hidden");
