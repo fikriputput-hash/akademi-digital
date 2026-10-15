@@ -603,7 +603,36 @@ function goSubject() {
 
     window.scrollTo(0, 0);
 }
+function openNote(chapter, index) {
+document.getElementById("subjectPage").classList.add("hidden");
+document.getElementById("notePage").classList.remove("hidden");
 
+const content = document.getElementById("noteContent");
+content.innerHTML = "";
+
+const title = document.createElement("h2");
+title.textContent = chapter;
+
+const subtitle = document.createElement("p");
+subtitle.textContent =
+    currentSubject.name + " Tingkatan " + currentGrade;
+
+const heading = document.createElement("h3");
+heading.textContent = "Nota Pembelajaran";
+
+const message = document.createElement("p");
+message.textContent =
+    "Nota bagi bab ini sedang disediakan. Sila kembali lagi untuk mendapatkan nota pembelajaran yang lengkap.";
+
+const backButton = document.createElement("button");
+backButton.textContent = "← Kembali ke Senarai Bab";
+backButton.onclick = goSubject;
+
+content.append(title, subtitle, heading, message, backButton);
+
+window.scrollTo(0, 0);
+
+}
 renderSubjects();
 </script>
 
