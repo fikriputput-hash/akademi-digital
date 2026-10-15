@@ -268,67 +268,200 @@ footer {
 
 <script>
 const subjects = [
-    {
-        name: "Bahasa Melayu",
-        icon: "📘",
-        grades: [4, 5],
-        chapters: ["Karangan", "Tatabahasa", "Pemahaman", "Novel"]
-    },
-    {
-        name: "Bahasa Inggeris",
-        icon: "📗",
-        grades: [4, 5],
-        chapters: ["Reading", "Writing", "Grammar", "Literature"]
-    },
-    {
-        name: "Matematik",
-        icon: "📐",
-        grades: [4, 5],
-        chapters: ["Fungsi", "Fungsi Kuadratik", "Penaakulan Logik",
-                   "Operasi Set", "Rangkaian dalam Teori Graf"]
-    },
-    {
-        name: "Matematik Tambahan",
-        icon: "📊",
-        grades: [4, 5],
-        chapters: ["Fungsi", "Fungsi Kuadratik", "Sistem Persamaan",
-                   "Indeks dan Logaritma"]
-    },
-    {
-        name: "Sejarah",
-        icon: "🏛️",
-        grades: [4, 5],
-        chapters: ["Nasionalisme", "Perjuangan Kemerdekaan",
-                   "Pembentukan Negara", "Malaysia dan Dunia"]
-    },
-    {
-        name: "Ekonomi",
-        icon: "📈",
-        grades: [4, 5],
-        chapters: ["Pengenalan Ekonomi", "Pasaran", "Wang dan Bank",
-                   "Ekonomi Malaysia"]
-    },
-    {
-        name: "Prinsip Perakaunan",
-        icon: "🧮",
-        grades: [4, 5],
-        chapters: ["Pengenalan Perakaunan",
-                   "Persamaan Perakaunan",
-                   "Dokumen Perniagaan", "Penyata Kewangan"]
-    },
-    {
-        name: "Pendidikan Islam",
-        icon: "🕌",
-        grades: [4, 5],
-        chapters: ["Al-Quran", "Hadis", "Akidah", "Fiqah", "Akhlak"]
-    },
-    {
-        name: "Pendidikan Jasmani dan Pendidikan Kesihatan",
-        icon: "🏃",
-        grades: [4, 5],
-        chapters: ["Kecergasan Fizikal", "Sukan dan Permainan",
-                   "Kesihatan Diri"]
-    }
+    
+{
+    name: "Al-Syariah",
+    icon: "⚖️",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Bahasa Melayu",
+    icon: "📘",
+    grades: [4, 5],
+    chapters: ["Karangan", "Tatabahasa", "Pemahaman", "Novel"]
+},
+{
+    name: "Bahasa Arab",
+    icon: "📗",
+    grades: [4, 5],
+    chapters: ["Mufradat", "Nahu", "Sarf", "Insya"]
+},
+{
+    name: "Biologi",
+    icon: "🧬",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Ekonomi",
+    icon: "📈",
+    grades: [4, 5],
+    chapters: ["Pengenalan Ekonomi", "Pasaran", "Wang dan Bank"]
+},
+{
+    name: "English",
+    icon: "📗",
+    grades: [4, 5],
+    chapters: ["Reading", "Writing", "Grammar", "Literature"]
+},
+{
+    name: "Fizik",
+    icon: "⚛️",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Geografi",
+    icon: "🌍",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Grafik Komunikasi Teknikal",
+    icon: "📐",
+    grades: [4, 5],
+    chapters: ["Lukisan Teknikal", "Geometri", "Unjuran"]
+},
+{
+    name: "Kesusasteraan Melayu Komunikatif",
+    icon: "📚",
+    grades: [4, 5],
+    chapters: ["Prosa", "Puisi", "Drama"]
+},
+{
+    name: "Kesusasteraan Tamil",
+    icon: "📚",
+    grades: [4, 5],
+    chapters: ["Puisi", "Prosa", "Kesusasteraan"]
+},
+{
+    name: "Kimia",
+    icon: "🧪",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Lughatul Arabiah Muasirah",
+    icon: "📝",
+    grades: [4, 5],
+    chapters: ["Mufradat", "Qiraah", "Kitabah"]
+},
+{
+    name: "Matematik",
+    icon: "📐",
+    grades: [4, 5],
+    chapters: ["Fungsi", "Fungsi Kuadratik", "Penaakulan Logik"]
+},
+{
+    name: "Matematik Tambahan",
+    icon: "📊",
+    grades: [4, 5],
+    chapters: ["Fungsi", "Fungsi Kuadratik", "Indeks dan Logaritma"]
+},
+{
+    name: "Pendidikan Islam",
+    icon: "🕌",
+    grades: [4, 5],
+    chapters: ["Al-Quran", "Hadis", "Akidah", "Fiqah", "Akhlak"]
+},
+{
+    name: "Pendidikan Moral",
+    icon: "🤝",
+    grades: [4, 5],
+    chapters: ["Nilai Moral", "Insan Bermoral", "Masyarakat"]
+},
+{
+    name: "Pendidikan Quran Sunnah",
+    icon: "📖",
+    grades: [4, 5],
+    chapters: ["Al-Quran", "Ulum Al-Quran", "Hadis"]
+},
+{
+    name: "Pendidikan Syariah Islamiah",
+    icon: "☪️",
+    grades: [4, 5],
+    chapters: ["Ibadah", "Munakahat", "Muamalat"]
+},
+{
+    name: "Pendidikan Seni Visual",
+    icon: "🎨",
+    grades: [4, 5],
+    chapters: ["Seni Halus", "Reka Bentuk", "Kritikan Seni"]
+},
+{
+    name: "Perniagaan",
+    icon: "💼",
+    grades: [4, 5],
+    chapters: ["Tujuan Perniagaan", "Pengurusan", "Pemasaran"]
+},
+{
+    name: "Pertanian",
+    icon: "🌱",
+    grades: [4, 5],
+    chapters: ["Tanaman", "Tanah", "Pengurusan Pertanian"]
+},
+{
+    name: "Prinsip Perakaunan",
+    icon: "🧮",
+    grades: [4, 5],
+    chapters: ["Pengenalan Perakaunan", "Persamaan Perakaunan", "Penyata Kewangan"]
+},
+{
+    name: "Reka Cipta",
+    icon: "💡",
+    grades: [4, 5],
+    chapters: ["Penyelesaian Masalah", "Reka Bentuk", "Penghasilan Produk"]
+},
+{
+    name: "Sains",
+    icon: "🔬",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Sains Komputer",
+    icon: "💻",
+    grades: [4, 5],
+    chapters: ["Pengaturcaraan", "Pangkalan Data", "Rangkaian"]
+},
+{
+    name: "Sains Rumah Tangga",
+    icon: "🏡",
+    grades: [4, 5],
+    chapters: ["Pemakanan", "Pakaian", "Pengurusan Rumah Tangga"]
+},
+{
+    name: "Sains Sukan",
+    icon: "🏅",
+    grades: [4, 5],
+    chapters: ["Anatomi", "Fisiologi", "Kecergasan"]
+},
+{
+    name: "Sains Tambahan",
+    icon: "🔭",
+    grades: [4, 5],
+    chapters: ["Bab 1", "Bab 2", "Bab 3"]
+},
+{
+    name: "Sejarah",
+    icon: "🏛️",
+    grades: [4, 5],
+    chapters: ["Nasionalisme", "Perjuangan Kemerdekaan", "Pembentukan Negara"]
+},
+{
+    name: "Tasawwur Islam",
+    icon: "🌙",
+    grades: [4, 5],
+    chapters: ["Islam sebagai Ad-Din", "Manusia sebagai Khalifah", "Sistem Sosial Islam"]
+},
+{
+    name: "Usuluddin",
+    icon: "📖",
+    grades: [4, 5],
+    chapters: ["Akidah", "Tauhid", "Pemikiran Islam"]
+}
+
 ];
 
 let currentSubject = null;
